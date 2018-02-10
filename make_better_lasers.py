@@ -1,6 +1,7 @@
-from lxml import etree
+import os
 import traceback
 
+from lxml import etree
 
 USE_MODEL_BEAMS = False
 
@@ -199,6 +200,7 @@ def main():
     for child in projectiles:
         if is_space_proj(child):
             update_projectile(child)
+    os.makedirs('Data/XML/', exist_ok=True)
     projectiles_file.write(
         'Data/XML/projectiles.xml',
         xml_declaration=True,
@@ -209,4 +211,4 @@ if __name__ == '__main__':
         main()
     except:
         traceback.print_exc()
-    input()
+    input('Done. Press Enter to Finish. ')
